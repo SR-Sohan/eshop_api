@@ -9,7 +9,7 @@ class Products extends Migration
 {
     public function up()
     {
-        $this->forge->addKey([
+        $this->forge->addField([
             "id" => [
                 "type" => "INT",
                 "constraint" => 11,
@@ -49,8 +49,8 @@ class Products extends Migration
         ]);
 
         $this->forge->addKey("id",true);
-        $this->forge->addForeignKey("cat_id","category","id",'CASCADE','CASCADE',"fkCatProduct");
-        $this->forge->addForeignKey("subcat_id","subcategory","id",'CASCADE','CASCADE',"fkCatSubProduct");
+        $this->forge->addForeignKey("cat_id","category","id",'CASCADE','CASCADE',"fkProductsCategory");
+        $this->forge->addForeignKey("subcat_id","subcategory","id",'CASCADE','CASCADE',"fkProductsSubcategory");
         $this->forge->createTable("products");
     }
 

@@ -29,8 +29,42 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+$routes->get("/login","AuthController::index");
+$routes->post("/login","AuthController::index");
+$routes->get("/register","AuthController::register");
+$routes->post("/register","AuthController::register");
+
+$routes->get("/","DashboardController::index",['filter' => 'admin']);
+
 $routes->get('/api/users','UserController::getUser');
 $routes->post('/api/users', 'UserController::createUser');
+
+$routes->get("/api/categories","CategoryController::getCategory");
+$routes->get("/api/categories/(:any)","CategoryController::getCategoryById/$1");
+$routes->post("/api/categories","CategoryController::postCategory");
+
+$routes->get("/categories","CategoryController::dGetCategories",['filter' => 'admin']);
+$routes->get("/add-categories","CategoryController::dPostCategories",['filter' => 'admin']);
+$routes->post("/add-categories","CategoryController::dPostCategories",['filter' => 'admin']);
+$routes->get('/deletecategories/(:num)', 'CategoryController::deleteCategory/$1',['filter' => 'admin']);
+
+
+$routes->get("/subcategories","SubCategoryController::dGetSubCategories",['filter' => 'admin']);
+$routes->get("/add-subcategories","SubCategoryController::dPostSubCategories",['filter' => 'admin']);
+$routes->post("/add-subcategories","SubCategoryController::dPostSubCategories",['filter' => 'admin']);
+$routes->get('/deletesubcategories/(:num)', 'SubCategoryController::deleteSubCategory/$1',['filter' => 'admin']);
+
+$routes->get("/products","ProductController::index",['filter' => 'admin']);
+$routes->get("/add-products","ProductController::create",['filter' => 'admin']);
+$routes->post("/add-products","ProductController::create",['filter' => 'admin']);
+$routes->get("/api/products","ProductController::getProducts");
+$routes->get("/api/products/(:any)","ProductController::getProductsById/$1");
+
+
+
+$routes->get("/api/subcategories","SubCategoryController::getSubCategory");
+
 
 /*
  * --------------------------------------------------------------------

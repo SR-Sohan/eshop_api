@@ -42,6 +42,10 @@ class Products extends Migration
                 "type" => "INT",
                 "constraint" => 11
             ],
+            "image" => [
+                "type" => "VARCHAR",
+                "constraint" => 500
+            ],
             "created_at" => [
                 "type" => "DATETIME",
                 "default" => new RawSql('CURRENT_TIMESTAMP')
@@ -49,8 +53,8 @@ class Products extends Migration
         ]);
 
         $this->forge->addKey("id",true);
-        $this->forge->addForeignKey("cat_id","category","id",'CASCADE','CASCADE',"fkProductsCategory");
-        $this->forge->addForeignKey("subcat_id","subcategory","id",'CASCADE','CASCADE',"fkProductsSubcategory");
+        $this->forge->addForeignKey("cat_id","category","id",'CASCADE','CASCADE',"fkProductsCategorytt");
+        $this->forge->addForeignKey("subcat_id","subcategory","id",'CASCADE','CASCADE',"fkProductsSubcategorytt");
         $this->forge->createTable("products");
     }
 

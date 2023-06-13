@@ -6,7 +6,7 @@
 
 
 
-<h1>Hello DashBoard</h1>
+<h1>Welcome EShop DashBoard</h1>
 
 
 

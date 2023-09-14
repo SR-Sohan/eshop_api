@@ -46,7 +46,7 @@ class AuthController extends BaseController
                 
                 $this->session->set($newdata);
                 if($user['role']==2){
-                    return redirect()->to("/");
+                    return redirect()->to("/admin");
                 }
                 elseif($user['role']==1){
                     return redirect()->to("/");  
